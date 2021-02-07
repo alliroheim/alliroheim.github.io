@@ -5,6 +5,9 @@
 	<title>Bouncing Box</title>
 	<script src="jquery.min.js"></script>
 	<style>
+    body {  background-image: url("paper.gif");
+  background-color: #225;
+  }
 		.box {
 			width: 70px;
 			height: 70px;
@@ -97,10 +100,12 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-                positionX = 0;
+                positionX = 250;
+                boardWidth = 250;
                 changeBoxText(points);
                 points = points + 1;
                 speed = speed + 3;
+
 
 
 
