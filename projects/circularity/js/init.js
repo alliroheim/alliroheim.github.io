@@ -21,12 +21,30 @@ var init = function (window) {
         
         // TODO 1 : Declare and initialize our variables
 
+        var circle;  // variable to hold a single circle when creating circles / iterating
+        var circles = []; // variable to store all circles in one Array
 
         // TODO 2 : Create a function that draws a circle 
-        
+         function drawCircle() {
+
+          
+         //create circle
+         //randomCircleInA 
+        circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
+     
+        physikz.addRandomVelocity(circle, canvas, 10, 10);
+
+        circles.push(circle);
+        view.addChild(circle);
+         }
+
 
         // TODO 3 / 7 : Call the drawCircle() function 
-
+        drawCircle();
+        drawCircle(); 
+        drawCircle();
+        drawCircle();
+        drawCircle();
 
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
@@ -39,16 +57,44 @@ var init = function (window) {
         */
         function update() {
             // TODO 4 : Update the circle's position //
-
-            
+        physikz.updatePosition(circle[0]);
+        physikz.updatePosition(circle[1]);
+        physikz.updatePosition(circle[2]);
+        physikz.updatePosition(circle[3]);
+        physikz.updatePosition(circle[4]);    
             // TODO 5 : Call game.checkCirclePosition() on your circles.
-           
+            game.checkCirclePosition(circle);
+            game.checkCirclePosition(circle);
+            game.checkCirclePosition(circle);
+            game.checkCirclePosition(circle);
+            game.checkCirclePosition(circle);
 
+            canvas.width
+            canvas.height
+
+            circle.x
+            circle.y
+            circle.radius
+
+          / if(circle.x > canvas.width) {
+               circle.x = 0;
+           }
+
+           if(circle.x < 0){
+               circle.x = canvas.width;
+           }
+           if(circle.y > canvas.height){
+               circle.y = 0;
+           }
+        
+           if(circle.y < 0){
+               circle.y = canvas.height;
+           } 
             // TODO 8 : Iterate over the array
-           
+           for (var i = 0; i < circles.length; i++) {
+              var eachValue = circles[i];
             
-        }
-    
+        }    
         /* 
         This Function should check the position of a circle that is passed to the 
         Function. If that circle drifts off the screen, this Function should move
@@ -57,13 +103,23 @@ var init = function (window) {
         game.checkCirclePosition = function(circle) {
 
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-            if ( circle.x > canvas.width ) {
+            if (circle.x > canvas.width) {
                 circle.x = 0;
             }
-            
-            // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            
 
+           if(circle.x < 0) {
+               circle.x = canvas.width;
+           }
+           if(circle.y > canvas.height) { 
+               circle.y = 0;
+           }
+        
+           if(circle.y < 0) {
+               circle.y = canvas.height;
+           }
+            // TODO 6 : YOUR CODE STARTS HERE //////////////////////
+
+        
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
         }
