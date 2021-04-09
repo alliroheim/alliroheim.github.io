@@ -16,11 +16,31 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY },
-                { "type": "sawblade", "x": 600, "y": groundY },
-                { "type": "sawblade", "x": 900, "y": groundY },
+                { "type": "sawblade", "x": 200, "y": 200 },
+                { "type": "sawblade", "x": 250, "y": 250 },
+                { "type": "sawblade", "x": 300, "y": 300 },
+                { "type": "reward", "x": 450, "y": 300 },
+                { "type": "enemy", "x": 250, "y": 300 },
+                { "type": "groo", "x": 350, "y": 350 },
             ]
         };
+        
+        for (i = 0; i < levelData.gameItems.length; i++) {
+            var firstGameItemObject = levelData.gameItems[i];
+            var firstX = firstGameItemObject.x;
+            var firstY = firstGameItemObject.y;
+            var firstType = firstGameItemObject.type;
+            
+            if (firstType === "sawblade") {
+                createSawBlade(firstX, firstY);
+            } else if (firstType === "reward") {
+                createReward(firstX, firstY);
+            } else if (firstType === "enemy") {
+                createEnemy(firstX, firstY);
+            } else {
+                createGroo(firstX, firstY);  
+            }
+        }
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
         game.setDebugMode(true);
