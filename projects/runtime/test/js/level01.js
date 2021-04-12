@@ -69,7 +69,7 @@ var level01 = function (window) {
         grooHitZone.x = x;
         grooHitZone.y = y;
         game.addGameItem(grooHitZone);    
-        var obstacleImage = draw.bitmap('img/groo2.png');
+        var obstacleImage = draw.bitmap('img/goat.png');
         obstacleImage.x = -25;
         obstacleImage.y = -25;
         grooHitZone.addChild(obstacleImage);
