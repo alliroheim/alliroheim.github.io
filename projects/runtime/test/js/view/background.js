@@ -26,7 +26,8 @@ var background = function (window) {
         var background;
         
         // ANIMATION VARIABLES HERE:
-        
+        var tree;
+        var buildings = [];
      
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -96,8 +97,10 @@ var background = function (window) {
 
                 if (buildings[i].x < -110) {
                 buildings[i].x = canvasWidth;
-                }  
-            }
+                }
+            }     
+        
+            
 
         } // end of update function - DO NOT DELETE
         
