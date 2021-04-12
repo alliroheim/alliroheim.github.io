@@ -3,7 +3,7 @@
 const
     expect = require('chai').expect,
     sinon = require('sinon'),
-    window = require('../test/windowMock.js'),
+    window = require('./windowMock.js'),
     init = require('../js/init.js'),
     background = require('../js/view/background.js'),
     level01 = require('../js/level01.js');
