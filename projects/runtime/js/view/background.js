@@ -69,15 +69,41 @@ var background = function (window) {
             }
              
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            var color = "#" + ((1<<24)*Math.random() | 0).toString(16)
-            for(var i = 0; i < 7; ++i) {
-            var buildingHeight = Math.floor(Math.random() * (300 - 100) + 100);
-            var building = draw.rect(75,buildingHeight, color, 'lightgray', 5);
-                building.x = 200*i;
-                building.y = groundY-buildingHeight;
-                background.addChild(building);
-                buildings.push(building);
+            for (var i = 0; i <= 10; i++) {
+                var randBuild = Math.floor(Math.random() * 8);
+                if (randBuild == 0) {
+                    buildings[i] = draw.bitmap(builds._0);
+                }
+                if (randBuild == 1) {
+                    buildings[i] = draw.bitmap(builds._1);
+                }
+                if (randBuild == 2) {
+                    buildings[i] = draw.bitmap(builds._2);
+                }
+                if (randBuild == 3) {
+                    buildings[i] = draw.bitmap(builds._3);
+                }
+                if (randBuild == 4) {
+                    buildings[i] = draw.bitmap(builds._4);
+                }
+                if (randBuild == 5) {
+                    buildings[i] = draw.bitmap(builds._5);
+                }
+                if (randBuild == 6) {
+                    buildings[i] = draw.bitmap(builds._6);
+                }
+                if (randBuild == 7) {
+                    buildings[i] = draw.bitmap(builds._7);
+                }
             }
+            for (var i = 0; i < buildings.length; i++) {
+                buildings[i].x = 160 * (i + 1);
+                buildings[i].y = groundY - 288;
+                buildings[i].scaleX = 0.5;
+                buildings[i].scaleY = 0.45;
+                background.addChild(buildings[i]);
+            }
+            
             
             // TODO 4: Part 1 - Add a tree
              tree = draw.bitmap('img/tree.png');
@@ -105,16 +131,95 @@ var background = function (window) {
             } 
             // TODO 5: Part 2 - Parallax
              for(var i = 0; i < buildings.length; i++) {
-                buildings[i].x -= 1; 
-
-                if (buildings[i].x < -100) {
-                buildings[i].x = canvasWidth;
+                buildings[i].x -= 0.5;
+                
+                if (buildings[i].x < -160) {
+                    buildRandom(i);
+                    buildings[i].x = canvasWidth + 159;
                 }
-            }   
+            }
+
         
             
         } // end of update function - DO NOT DELETE
-        
+         function buildRandom(buildIndex) {
+            var randBuild = Math.floor(Math.random() * 8);
+                if (randBuild == 0) {
+                    background.removeChild(buildings[buildIndex]);
+                    buildings[buildIndex] = draw.bitmap(builds._0);
+                    buildings[buildIndex].x = canvasWidth;
+                    buildings[buildIndex].y = groundY - 288;
+                    buildings[buildIndex].scaleX = 0.5;
+                    buildings[buildIndex].scaleY = 0.45;
+                    background.addChild(buildings[buildIndex]);
+                }
+                else if (randBuild == 1) {
+                    background.removeChild(buildings[buildIndex]);
+                    buildings[buildIndex] = draw.bitmap(builds._1);
+                    buildings[buildIndex].x = canvasWidth;
+                    buildings[buildIndex].y = groundY - 288;
+                    buildings[buildIndex].scaleX = 0.5;
+                    buildings[buildIndex].scaleY = 0.45;
+                    background.addChild(buildings[buildIndex]);
+                }
+                else if (randBuild == 2) {
+                    background.removeChild(buildings[buildIndex]);
+                    buildings[buildIndex] = draw.bitmap(builds._2);
+                    buildings[buildIndex].x = canvasWidth;
+                    buildings[buildIndex].y = groundY - 288;
+                    buildings[buildIndex].scaleX = 0.5;
+                    buildings[buildIndex].scaleY = 0.45;
+                    background.addChild(buildings[buildIndex]);
+                }
+                else if (randBuild == 3) {
+                    background.removeChild(buildings[buildIndex]);
+                    buildings[buildIndex] = draw.bitmap(builds._3);
+                    buildings[buildIndex].x = canvasWidth;
+                    buildings[buildIndex].y = groundY - 288;
+                    buildings[buildIndex].scaleX = 0.5;
+                    buildings[buildIndex].scaleY = 0.45;
+                    background.addChild(buildings[buildIndex]);
+                }
+                else if (randBuild == 4) {
+                    background.removeChild(buildings[buildIndex]);
+                    buildings[buildIndex] = draw.bitmap(builds._4);
+                    buildings[buildIndex].x = canvasWidth;
+                    buildings[buildIndex].y = groundY - 288;
+                    buildings[buildIndex].scaleX = 0.5;
+                    buildings[buildIndex].scaleY = 0.45;
+                    background.addChild(buildings[buildIndex]);
+                }
+                else if (randBuild == 5) {
+                    background.removeChild(buildings[buildIndex]);
+                    buildings[buildIndex] = draw.bitmap(builds._5);
+                    buildings[buildIndex].x = canvasWidth;
+                    buildings[buildIndex].y = groundY - 288;
+                    buildings[buildIndex].scaleX = 0.5;
+                    buildings[buildIndex].scaleY = 0.45;
+                    background.addChild(buildings[buildIndex]);
+                }
+                else if (randBuild == 6) {
+                    background.removeChild(buildings[buildIndex]);
+                    buildings[buildIndex] = draw.bitmap(builds._6);
+                    buildings[buildIndex].x = canvasWidth;
+                    buildings[buildIndex].y = groundY - 288;
+                    buildings[buildIndex].scaleX = 0.5;
+                    buildings[buildIndex].scaleY = 0.45;
+                    background.addChild(buildings[buildIndex]);
+                }
+                else if (randBuild == 7) {
+                    background.removeChild(buildings[buildIndex]);
+                    buildings[buildIndex] = draw.bitmap(builds._7);
+                    buildings[buildIndex].x = canvasWidth;
+                    buildings[buildIndex].y = groundY - 288;
+                    buildings[buildIndex].scaleX = 0.5;
+                    buildings[buildIndex].scaleY = 0.45;
+                    background.addChild(buildings[buildIndex]);
+                }
+                
+                
+            return buildings[buildIndex];
+        }
         
         
         /* Make a createjs Container for the background and let it know about the render and upate functions*/
