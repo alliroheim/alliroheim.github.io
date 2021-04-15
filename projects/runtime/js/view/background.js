@@ -36,7 +36,7 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'yellow');
+            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'lightpurple');
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
@@ -47,14 +47,27 @@ var background = function (window) {
                  moon.scaleY = 0.5;
              background.addChild(moon);
             
-             var loopsCompleted = 0; 
-             while (loopsCompleted < 100) {
-             var circle = draw.circle(10,'yellow','LightGray',2);
-             circle.x = canvasWidth*Math.random();
-             circle.y = groundY*Math.random();
-             background.addChild(circle);
-             loopsCompleted++
-             }       
+             var stars = [];
+            for (var sCount = 0; sCount <= 10; sCount++) {
+                var randStar = Math.floor(Math.random() * 3);
+                var starY = (Math.floor(Math.random() * groundY)) - 25;
+                var starX = Math.floor(Math.random() * canvasWidth);
+                if (randStar == 0) {
+                    stars[sCount] = draw.bitmap('assets/moonsprites/star1.png');
+                }
+                if (randStar == 1) {
+                    stars[sCount] = draw.bitmap('assets/moonsprites/star2.png');
+                }
+                if (randStar == 2) {
+                    stars[sCount] = draw.bitmap('assets/moonsprites/star3.png');
+                }
+                stars[sCount].x = canvasWidth - starX;
+                stars[sCount].y = starY;
+                stars[sCount].scaleX = 0.3;
+                stars[sCount].scaleY = 0.3;
+                background.addChild(stars[sCount]);
+            }
+             
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             var color = "#" + ((1<<24)*Math.random() | 0).toString(16)
             for(var i = 0; i < 7; ++i) {
