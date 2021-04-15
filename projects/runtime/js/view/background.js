@@ -46,25 +46,25 @@ var background = function (window) {
                  moon.scaleX = 0.5;
                  moon.scaleY = 0.5;
              background.addChild(moon);
-            
+
              var stars = [];
             for (var sCount = 0; sCount <= 10; sCount++) {
                 var randStar = Math.floor(Math.random() * 3);
                 var starY = (Math.floor(Math.random() * groundY)) - 25;
                 var starX = Math.floor(Math.random() * canvasWidth);
                 if (randStar == 0) {
-                    stars[sCount] = draw.bitmap('assets/moonsprites/star1.png');
+                    stars[sCount] = draw.bitmap('img/star.png');
                 }
                 if (randStar == 1) {
-                    stars[sCount] = draw.bitmap('assets/moonsprites/star2.png');
+                    stars[sCount] = draw.bitmap('img/star.png');
                 }
                 if (randStar == 2) {
-                    stars[sCount] = draw.bitmap('assets/moonsprites/star3.png');
+                    stars[sCount] = draw.bitmap('img/star.png');
                 }
                 stars[sCount].x = canvasWidth - starX;
                 stars[sCount].y = starY;
-                stars[sCount].scaleX = 0.3;
-                stars[sCount].scaleY = 0.3;
+                stars[sCount].scaleX = 0.2;
+                stars[sCount].scaleY = 0.2;
                 background.addChild(stars[sCount]);
             }
              
