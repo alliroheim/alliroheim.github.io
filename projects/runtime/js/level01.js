@@ -21,7 +21,7 @@ var level01 = function (window) {
                 { "type": "sawblade", "x": 300, "y": 300 },
                 { "type": "reward", "x": 450, "y": 300 },
                 { "type": "enemy", "x": 250, "y": 300 },
-                { "type": "groo", "x": 350, "y": 350 },
+                { "type": "goat", "x": 350, "y": 350 },
             ]
         };
         
@@ -38,7 +38,7 @@ var level01 = function (window) {
             } else if (firstType === "enemy") {
                 createEnemy(firstX, firstY);
             } else {
-                createGroo(firstX, firstY);  
+                createGoat(firstX, firstY);  
             }
         }
         window.levelData = levelData;
@@ -47,7 +47,6 @@ var level01 = function (window) {
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
-
         //Obstacle creation
         function createSawBlade (x, y) {
         var hitZoneSize = 25;
@@ -62,17 +61,17 @@ var level01 = function (window) {
         sawBladeHitZone.addChild(obstacleImage);
         }
         
-        function createGroo (x, y) {
+        function createGoat (x, y) {
         var hitZoneSize = 25;
         var damageFromObstacle = 10;
-        var grooHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
-        grooHitZone.x = x;
-        grooHitZone.y = y;
-        game.addGameItem(grooHitZone);    
+        var goatHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+        goatHitZone.x = x;
+        goatHitZone.y = y;
+        game.addGameItem(goatHitZone);    
         var obstacleImage = draw.bitmap('img/goat.png');
         obstacleImage.x = -25;
         obstacleImage.y = -25;
-        grooHitZone.addChild(obstacleImage);
+        goatHitZone.addChild(obstacleImage);
         }
         
           function createEnemy (x, y) {
@@ -114,16 +113,7 @@ var level01 = function (window) {
                 reward.fadeOut();
             }
         }
-        //functions calls
-        createSawBlade(200, 200);
-        createSawBlade(250, 250);
-        createSawBlade(300, 300); 
-
-        createGroo(320, 320);
-
-        createEnemy(250, 300);
-
-        createReward(460, 300);
+        
         // DO NOT EDIT CODE BELOW HERE
     }
 };
