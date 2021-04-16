@@ -29,7 +29,7 @@ var background = function (window) {
         var tree;
         var buildings = [];
         
-        //
+        //credit to tonyroux/tonyroux.github.com
 
         var builds = {
             _0 : 'assets/Buildings/build_0.png',
