@@ -27,6 +27,10 @@ var background = function (window) {
         
         // ANIMATION VARIABLES HERE:
         var tree;
+        var buildings = [];
+        
+        //
+
         var builds = {
             _0 : 'assets/Buildings/build_0.png',
             _1 : 'assets/Buildings/build_1.png',
