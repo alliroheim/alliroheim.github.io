@@ -83,7 +83,7 @@ var level01 = function (window) {
         enemy.x = x;
         enemy.y = y;
         game.addGameItem(enemy);
-        enemy.velocityX = -1;
+        enemy.velocityX = -10;
         rotationVelocity = 10;
 
             enemy.onPlayerCollision = function() {
